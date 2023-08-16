@@ -11,8 +11,15 @@ resource "aws_instance" "ec2_instance" {
   vpc_security_group_ids = [aws_security_group.ssh.id]  # Associa o grupo de segurança à instância
   
   user_data = <<-EOF
-    #!/bin/bash
-    echo "Hello, this is user data!" > ./user_data.txt
+    
+   #!/bin/bash
+    sudo yum update
+    sudo yum -y install docker
+    sudo service docker start
+    sudo usermod -a -G docker ec2-user
+    sudo chkconfig docker on
+    sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
     EOF
 
   tags = {
