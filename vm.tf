@@ -11,7 +11,7 @@ resource "aws_instance" "ec2_instance" {
   vpc_security_group_ids = [aws_security_group.ssh.id]  # Associa o grupo de segurança à instância
   user_data = <<-EOF
     #!/bin/bash
-    echo "Hello, this is user data!" > ./user_data.txt
+    echo "Hello, this is user data!" > user_data.txt
     EOF
 
   tags = {
