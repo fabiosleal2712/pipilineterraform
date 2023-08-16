@@ -1,0 +1,7 @@
+github.sh
+keyterraforn.pub
+keyterraforn
+.terraform/*
+*.hcl
+*.tfstate
+*.tfstate.backup
