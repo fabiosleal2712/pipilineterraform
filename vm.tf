@@ -9,6 +9,10 @@ resource "aws_instance" "ec2_instance" {
   key_name      = aws_key_pair.ssh-key.key_name
   subnet_id     = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.ssh.id]  # Associa o grupo de segurança à instância
+  user_data = <<-EOF
+    #!/bin/bash
+    echo "Hello, this is user data!" > ./user_data.txt
+    EOF
 
   tags = {
     Name = "EC2-Instance"
