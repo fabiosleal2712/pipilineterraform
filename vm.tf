@@ -16,3 +16,22 @@ resource "aws_instance" "ec2_instance" {
     Name = "EC2-Instance"
   }
 }
+
+resource "aws_ebs_volume" "ebs_volume" {
+  availability_zone = aws_instance.ec2_instance.availability_zone
+  size              = 80
+  type              = "gp2"  # Tipo de volume EBS (gp2 é o padrão e é apropriado para a maioria dos casos)
+}
+
+resource "aws_volume_attachment" "ebs_attachment" {
+  device_name = "/dev/sdf"  # Nome do dispositivo na instância
+  volume_id   = aws_ebs_volume.ebs_volume.id
+  instance_id = aws_instance.ec2_instance.id
+}
+
+
+
+
+
+
+
