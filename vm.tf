@@ -12,7 +12,7 @@ resource "aws_instance" "ec2_instance" {
   
   user_data = <<-EOF
     #!/bin/bash
-    echo "Hello, this is user data!" > ,/user_data.txt
+    echo "Hello, this is user data!" > ./user_data.txt
     EOF
 
   tags = {
