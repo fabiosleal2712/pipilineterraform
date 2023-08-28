@@ -61,10 +61,10 @@ resource "aws_security_group" "my_sg" {
 }
 
 # Criando a keypair
-resource "aws_key_pair" "my_keypair" {
-  key_name   = "ssh-key"
-  key_name      = aws_key_pair.ssh-key.key_name
-}
+#resource "aws_key_pair" "my_keypair" {
+#  key_name   = "ssh-key"
+#  key_name      = aws_key_pair.ssh-key.key_name
+#}
 
 # Configurando o backend S3
 #terraform {
