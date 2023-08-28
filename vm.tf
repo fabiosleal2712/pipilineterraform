@@ -6,7 +6,7 @@ resource "aws_key_pair" "ssh-key" {
 resource "aws_instance" "ec2_instance" {
   ami           = "ami-08a52ddb321b32a8c"  # Substitua pelo ID da AMI desejada
   instance_type = "t2.micro"
-  availability_zone = "us-east-1a" # Substitua pela mesma zona de disponibilidade do volume EBS
+  availability_zone = "us-east-1f" # Substitua pela mesma zona de disponibilidade do volume EBS
   key_name      = aws_key_pair.ssh-key.key_name
   subnet_id     = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.ssh.id]  # Associa o grupo de segurança à instância
