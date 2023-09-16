@@ -1,4 +1,4 @@
-# Definindo o provedor AWS
+# Defindndo o provedor AWS
 #provider "aws" {
 #  region = "us-east-2"
 #}
